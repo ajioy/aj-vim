@@ -1,12 +1,9 @@
 " Vim color file
 "
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" https://github.com/tomasr/molokai
+" Author: Ajioy Scotte <ajioy@hotmail.com>
+" https://github.com/ajioy/ajcolor
 "
-" Note: Based on the Monokai theme for TextMate
-" by Wimer Hazenberg and its darker variant
-" by Hamish Stuart Macpherson
-"
+" Note: Based on the Monokai theme
 
 
 hi clear

@@ -3,7 +3,7 @@
 " Author:  ajioy
 " Email: ajioy@hotmail.com
 " BlogPost: http://blog.csdn.net/ajioy
-" Last_modify: 2019-01-18
+" Last_modify: 2019-01-23
 " Sections:
 "       -> Initial Plugin 加载插件
 "       -> General Settings 基础设置
@@ -22,13 +22,11 @@
 "==========================================
 " Initial Plugin 加载插件
 "==========================================
-
 " 修改leader键
 let mapleader = ','
 let g:mapleader = ','
-
-" 开启语法高亮
-syntax on
+syntax enable            " 开启语法高亮
+syntax on                " 自动语法
 
 " install bundles
 if filereadable(expand("~/.vimrc.bundles"))
@@ -46,6 +44,11 @@ filetype plugin indent on
 " General Settings 基础设置
 "==========================================
 
+set nocompatible         " 设置不兼容原始vi模式 
+set noeb                 " 关闭错误的提示
+set ttimeoutlen=0        " 设置<ESC>键响应时间                                                    
+set whichwrap+=<,>,h,l   " 设置光标键跨行                                                             
+"set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
 
 " history存储容量
 set history=2000
@@ -59,17 +62,19 @@ filetype plugin on
 " 启动自动补全
 filetype plugin indent on
 
-" 文件修改之后自动载入
-set autoread
 " 启动的时候不显示那个援助乌干达儿童的提示
 set shortmess=atI
 
 " backup setting, when crash can recovery
+" 文件修改之后自动载入
+set autoread
+" set autowrite           " 设置自动保存 
 set backupdir=~/.vimbackup
 set undofile
 set undodir=~/.vimundo
 set undolevels=1000
-set noswapfile
+set noswapfile            " 禁止生成临时文件
+" set confirm               " 在处理未保存或只读文件的时候，弹出确认
 
 " set directory=~/.vimswp//
 " set nobackup
@@ -260,7 +265,7 @@ endif
 " 设置新文件的编码为 UTF-8
 set encoding=utf-8
 " 自动判断编码时，依次尝试以下编码：
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=ucs-bom,utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=cn
 "set langmenu=zh_CN.UTF-8
 "set enc=2byte-gb18030
@@ -664,6 +669,7 @@ endif
 set t_Co=256
 
 " colorscheme solarized
+" colorscheme ajcolor
 colorscheme molokai
 
 
