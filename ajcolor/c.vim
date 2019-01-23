@@ -213,11 +213,11 @@ syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
 
 " User custom
-syn match cUserSpecialCharacter display "[~!%^&()\-+\*\/,.<>?:]"
-syn match cUserSpecialCharacter2 display "[{};]"
-syn match cUserSpecialCharacter3 display "[=]"
-syn match cUserSpecialCharacter4 display "[<>]"
-syn match cUserSpecialCharacter5 display "[[]]"
+syn match cUserSpecialCharacter display "[~!%^&()\-+\*\/.<>?:]"
+syn match cUserSpecialCharacter2 display "[{};,]"
+syn match cUserSpecialCharacter3 display "[[]]"
+syn match cUserSpecialCharacter4 display "[=]"
+syn match cUserSpecialCharacter5 display "[<>]"
 
 if exists("c_comment_strings")
   " A comment can contain cString, cCharacter and cNumber.
