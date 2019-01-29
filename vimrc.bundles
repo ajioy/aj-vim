@@ -55,7 +55,7 @@ Plug 'brooth/far.vim'
 if v:version < 800
     Plug 'scrooloose/syntastic'
 else
-    Plug 'w0rp/ale'
+    " Plug 'w0rp/ale'
 endif
 
 " Group dependencies, vim-snippets depends on ultisnips
@@ -496,8 +496,8 @@ endif
     nnoremap <leader>jo :YcmCompleter GoToInclude<cr>
     nnoremap <leader>jf :YcmCompleter FixIt<cr>
     
-    " let g:ycm_server_python_interpreter = '/usr/bin/python'
-    " let g:ycm_python_binary_path = 'python'
+    let g:ycm_server_python_interpreter = '/usr/bin/python'
+    let g:ycm_python_binary_path = 'python'
 
     " 语法错误提示
     let g:ycm_error_symbol = 'x'
@@ -523,8 +523,21 @@ endif
         \ 'tagbar' : 1,
         \ 'gitcommit' : 1,
         \}
+
 " }}}
 
+" ctags, 可以展示函数原型
+set tags+=/usr/include/tags
+set tags+=~/.vim/systags
+set tags+=~/.vim/x86_64-linux-gnu-systags
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_semantic_triggers = { 
+  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+  \   'python' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \ }
+let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 
 " ultisnips {{{
     let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -727,6 +740,8 @@ endif
     set laststatus=2
     set lazyredraw
     " let g:airline_theme='powerlineish'
+    " let g:airline_theme='lucius'
+    let g:airline_theme='jellybeans'
     " 使用powerline打过补丁的字体
     let g:airline_powerline_fonts=1
     if !exists('g:airline_symbols')

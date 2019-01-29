@@ -99,7 +99,7 @@ set noswapfile            " 禁止生成临时文件
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 " 突出显示当前列
-set cursorcolumn
+" set cursorcolumn
 " 突出显示当前行
 set cursorline
 
@@ -669,8 +669,8 @@ endif
 set t_Co=256
 
 " colorscheme solarized
-" colorscheme ajcolor
-colorscheme molokai
+colorscheme ajcolor
+" colorscheme molokai
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -720,4 +720,3 @@ func! CompileRunGcc()
     endif
 
 endfunc
-
