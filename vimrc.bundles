@@ -44,6 +44,9 @@ Plug 'ludovicchabant/vim-gutentags'
  " 模糊查找
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+" 显示最近打开过的文件MRU
+" Plug 'mhinz/vim-startify'
+
 " 缩进竖线
 Plug 'Yggdroot/indentLine'
 

@@ -1,7 +1,8 @@
 " Vim syntax file
 " Language:	C
+" Language:	C
 " Maintainer:	Ajioy (ajioy@hotmail.com)
-" Last Change:	2019 Jan 23
+" Last Change:	2019 Feb 24
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -213,11 +214,14 @@ syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
 
 " User custom
-syn match cUserSpecialCharacter display "[~!%^&()\-+\*\/.<>?:]"
+syn match cUserSpecialCharacter1 display "[~!%^&()\-+\*\/.<>?:]"
 syn match cUserSpecialCharacter2 display "[{};,]"
 syn match cUserSpecialCharacter3 display "[[]]"
 syn match cUserSpecialCharacter4 display "[=]"
-syn match cUserSpecialCharacter5 display "[<>]"
+syn match cUserSpecialCharacter5 display "[-+*/%^&]="
+syn match cUserSpecialCharacter6 display "[<>]"
+syn match cUserSpecialCharacter7 display "->"
+syn match cUserSpecialCharacter8 display "[<>]="
 
 if exists("c_comment_strings")
   " A comment can contain cString, cCharacter and cNumber.
@@ -493,11 +497,14 @@ hi def link cCppOutSkip		cCppOutIf2
 hi def link cCppInElse2		cCppOutIf2
 hi def link cCppOutIf2		cCppOut
 hi def link cCppOut		Comment
-hi def link cUserSpecialCharacter cCharacter
-hi def link cUserSpecialCharacter2 cCharacter
-hi def link cUserSpecialCharacter3 cCharacter
-hi def link cUserSpecialCharacter4 cCharacter
-"hi def link cUserSpecialCharacter5 cCharacter
+hi def link cUserSpecialCharacter1 SpecialCharacter1
+hi def link cUserSpecialCharacter2 SpecialCharacter2
+hi def link cUserSpecialCharacter3 SpecialCharacter3
+hi def link cUserSpecialCharacter4 SpecialCharacter4
+hi def link cUserSpecialCharacter5 SpecialCharacter5
+hi def link cUserSpecialCharacter6 SpecialCharacter6
+hi def link cUserSpecialCharacter7 SpecialCharacter7
+hi def link cUserSpecialCharacter8 SpecialCharacter8
 
 let b:current_syntax = "c"
 

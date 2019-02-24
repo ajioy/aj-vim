@@ -68,7 +68,7 @@ let g:colors_name="ajcolor"
    hi Visual                      ctermbg=243   cterm=reverse
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
-   hi SpecialKey      ctermfg=white
+   hi SpecialKey      ctermfg=238
    " cursor line and column, and left side
    hi Cursor          ctermfg=168  ctermbg=168
    hi CursorIM        ctermfg=168  ctermbg=168
@@ -109,14 +109,19 @@ let g:colors_name="ajcolor"
        hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
    endif
 
+   " others
+   "hi Include        ctermfg=126
+
    " custom special characters, like []{},;:+-=. etc
-   hi cUserSpecialCharacter ctermfg=37 
-   hi cUserSpecialCharacter2 ctermfg=40
-   hi cUserSpecialCharacter3 ctermfg=40
-   hi cUserSpecialCharacter4 ctermfg=119 
-   hi cUserSpecialCharacter5 ctermfg=126
-
-
+   hi SpecialCharacter1 ctermfg=37 
+   hi SpecialCharacter2 ctermfg=40
+   hi SpecialCharacter3 ctermfg=40
+   hi SpecialCharacter4 ctermfg=119 
+   hi SpecialCharacter5 ctermfg=119
+   "hi SpecialCharacter6 ctermfg=126
+   hi SpecialCharacter6 ctermfg=37
+   hi SpecialCharacter7 ctermfg=37
+   hi SpecialCharacter8 ctermfg=37
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
