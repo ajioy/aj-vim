@@ -3,27 +3,23 @@ aj-vim
 
 
 > VERSION: 1.0
-
-> LAST_UPDATE_TIME: 2019-01-18
-
-> REFERENCE: k-vim/ https://github.com/wklken/k-vim
-
-> 声明：本repo是基于k-vim进行修改而来
+LAST_UPDATE_TIME: 2019-03-08
+REFERENCE: k-vim/ https://github.com/wklken/k-vim
+声明：本repo基于k-vim修改而来
 
 
-# 截图
+# Screenshots
 
-molokai主题
+- **[ajcolor colorscheme(ajioy自定义配色)](https://github.com/ajioy/ajcolor)**
+![tmuximg](https://raw.githubusercontent.com/ajioy/storage/master/vim_ajcolor.png)
 
-solarized主题
-
-ajcolor主题
-
+- **molokai colorscheme**
+![tmuximg](https://raw.githubusercontent.com/ajioy/storage/master/vim_molokai.png)
 
 ---------------------------------
----------------------------------
 
-# 安装步骤
+
+# Install Steps
 
 ### 1. clone 到本地
 
@@ -99,15 +95,8 @@ YouComplateme
 
 cd ycm/
 cp .ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/
-
-ajcolor(colorscheme for c)
-cd ajcolor
-cp ajcolor.vim /usr/local/share/vim/vim81/colors/
-cp c.vim /usr/local/share/vim/vim81/syntax/c.vim/
-
 ```
 
-------------------------
 ------------------------
 
 # 移除安装
@@ -117,14 +106,12 @@ cd ~ && rm -rf .vim .vimrc .vimrc.bundles && cd -
 ```
 
 ---------------------------------
----------------------------------
 
 # 常见问题
 
 详见 [wiki](https://github.com/ajioy/aj-vim/wiki) 以及  [issues](https://github.com/ajioy/aj-vim/issues)
 
 
-------------------------
 ------------------------
 
 # 插件
@@ -280,4 +267,4 @@ ctrl+n    相对/绝对行号切换
 ```
 
 ------------------------
-------------------------
+
