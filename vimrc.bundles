@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
+    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta', 'php']
 endif
 
 " ----------------------------------------------------------------------------
@@ -44,11 +44,11 @@ Plug 'ludovicchabant/vim-gutentags'
  " 模糊查找
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
-" 显示最近打开过的文件MRU
-" Plug 'mhinz/vim-startify'
-
 " 缩进竖线
 Plug 'Yggdroot/indentLine'
+
+" 显示最近打开过的文件MRU
+Plug 'mhinz/vim-startify'
 
 " 全局查找替换
 Plug 'brooth/far.vim'
@@ -207,7 +207,8 @@ endif
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
-    Plug 'hdima/python-syntax'
+    " Plug 'hdima/python-syntax'
+    Plug 'ajioy/ajcolor'            " 增强python及c/c++语法及配色
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'Glench/Vim-Jinja2-Syntax'
 
@@ -266,7 +267,7 @@ if count(g:bundle_groups, 'css')
 
     " 这个有坑, see issue https://github.com/wklken/k-vim/issues/49
     " Plug 'gorodinskiy/vim-coloresque'
-    " Plug 'lilydjwg/colorizer'
+    Plug 'lilydjwg/colorizer'
 endif
 
 if count(g:bundle_groups, 'less')
@@ -277,7 +278,7 @@ endif
 
 if count(g:bundle_groups, 'html')
     " ###### emmet HTML complete #########
-    " Plug 'mattn/emmet-vim'
+    Plug 'mattn/emmet-vim'
 endif
 
 
@@ -292,7 +293,6 @@ call plug#end()
     noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
     noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 " }}}
-
 
 
 " gutentags {{{
@@ -488,7 +488,7 @@ endif
     " 回车作为选中
     let g:ycm_key_list_stop_completion = ['<CR>']
 
-    "let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+    let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 
     " 跳转到定义处, 分屏打开
     let g:ycm_goto_buffer_command = 'horizontal-split'
@@ -790,26 +790,26 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 
 
 
-" rainbow_parentheses {{{
-    " 不加入这行, 防止黑色括号出现, 很难识别
-    " \ ['black',       'SeaGreen3'],
-    let g:rbpt_colorpairs = [
-        \ ['brown',       'RoyalBlue3'],
-        \ ['Darkblue',    'SeaGreen3'],
-        \ ['darkgray',    'DarkOrchid3'],
-        \ ['darkgreen',   'firebrick3'],
-        \ ['darkcyan',    'RoyalBlue3'],
-        \ ['darkred',     'SeaGreen3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['brown',       'firebrick3'],
-        \ ['gray',        'RoyalBlue3'],
-        \ ['darkmagenta', 'DarkOrchid3'],
-        \ ['Darkblue',    'firebrick3'],
-        \ ['darkgreen',   'RoyalBlue3'],
-        \ ['darkcyan',    'SeaGreen3'],
-        \ ['darkred',     'DarkOrchid3'],
-        \ ['red',         'firebrick3'],
-        \ ]
+" " rainbow_parentheses {{{
+    " " 不加入这行, 防止黑色括号出现, 很难识别
+    " " \ ['black',       'SeaGreen3'],
+    " let g:rbpt_colorpairs = [
+        " \ ['brown',       'RoyalBlue3'],
+        " \ ['Darkblue',    'SeaGreen3'],
+        " \ ['darkgray',    'DarkOrchid3'],
+        " \ ['darkgreen',   'firebrick3'],
+        " \ ['darkcyan',    'RoyalBlue3'],
+        " \ ['darkred',     'SeaGreen3'],
+        " \ ['darkmagenta', 'DarkOrchid3'],
+        " \ ['brown',       'firebrick3'],
+        " \ ['gray',        'RoyalBlue3'],
+        " \ ['darkmagenta', 'DarkOrchid3'],
+        " \ ['Darkblue',    'firebrick3'],
+        " \ ['darkgreen',   'RoyalBlue3'],
+        " \ ['darkcyan',    'SeaGreen3'],
+        " \ ['darkred',     'DarkOrchid3'],
+        " \ ['red',         'firebrick3'],
+        " \ ]
 
     " 手动开启吧，否则影响ajcolor
     " let g:rbpt_max = 16
