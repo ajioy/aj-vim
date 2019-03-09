@@ -34,8 +34,6 @@ Plug 'terryma/vim-smooth-scroll'  " 让翻页更流畅、平滑
 " 使vim terminal配色与gui配色保持一致
 Plug 'vim-scripts/CSApprox'
 
-Plug 'haya14busa/incsearch.vim'
-
  " 自动生成tags
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -164,18 +162,21 @@ Plug 'vim-airline/vim-airline-themes' ", { 'for':['python', 'c', 'cpp']}
 " Plug 'altercation/vim-colors-solarized'
 " molokai
 " 主题 molokai
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
+Plug 'ajioy/ajcolor'            " 增强python及c/c++语法及配色
 " Plug 'rakr/vim-one'
-
+" Plug 'dracula/vim', { 'as': 'dracula' }
 
 " nav
 " nerdtree nerdtreetabs
 " Plug 'scrooloose/nerdtree' , { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'Xuyuanp/nerdtree-git-plugin' , { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+" 
 " ctrlspace
-Plug 'vim-ctrlspace/vim-ctrlspace', { 'on': 'NERDTreeToggle'}
+" Plug 'vim-ctrlspace/vim-ctrlspace', { 'on': 'NERDTreeToggle'}
 " tagbar
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'for':['python', 'ruby', 'html', 'javascript', 'css'] }
 
 " text object
 " 支持自定义文本对象
@@ -208,7 +209,6 @@ if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
     " Plug 'hdima/python-syntax'
-    Plug 'ajioy/ajcolor'            " 增强python及c/c++语法及配色
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'Glench/Vim-Jinja2-Syntax'
 
@@ -863,6 +863,7 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 
     " nerdtreetabs
     map <Leader>n <plug>NERDTreeTabsToggle<CR>
+    map <leader>v :NERDTreeFind<CR>
     " 关闭同步
     " let g:nerdtree_tabs_synchronize_view=0
     " let g:nerdtree_tabs_synchronize_focus=0
@@ -870,6 +871,7 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
     " thank to @ListenerRi, see https://github.com/wklken/k-vim/issues/165
     let g:nerdtree_tabs_open_on_console_startup=0
     let g:nerdtree_tabs_open_on_gui_startup=0
+    let NERDTreeWinSize=31
     let NERDTreeDirArrows=1
     let g:NERDTreeDirArrowExpandable = '+'
     let g:NERDTreeDirArrowCollapsible = '~'
@@ -879,23 +881,43 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
     " let g:NERDTreeDirArrowExpandable = '+'
     " let g:NERDTreeDirArrowCollapsible = '~'
 
+    " 是否自动开启nerdtree
+    " thank to @ListenerRi, see https://github.com/wklken/k-vim/issues/165
+    let g:nerdtree_tabs_open_on_console_startup=0
+    let g:nerdtree_tabs_open_on_gui_startup=0
+
 " }}}
 
+" nerdtree-git-plugin {{{
+" " nerdtree-git{{{
+" let g:NERDTreeIndicatorMapCustom = {
+    " \ "Modified"  : "✹",
+    " \ "Staged"    : "✚",
+    " \ "Untracked" : "✭",
+    " \ "Renamed"   : "➜",
+    " \ "Unmerged"  : "═",
+    " \ "Deleted"   : "✖",
+    " \ "Dirty"     : "✗",
+    " \ "Clean"     : "✔︎",
+    " \ 'Ignored'   : '☒',
+    " \ "Unknown"   : "?"
+    " \ }
+" "}}}
 
-" Vim Workspace Controller
-" ctrlspace {{{
-    let g:CtrlSpaceDefaultMappingKey = "<C-P> "
-    let g:airline_exclude_preview = 1
-    hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
-    hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE
-    hi CtrlSpaceSearch   guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
-    hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=reverse ctermfg=12 ctermbg=8
+" Vim Workspace Controller, leaderf ,lb可替代
+" " ctrlspace {{{
+    " let g:CtrlSpaceDefaultMappingKey = "<C-P> "
+    " let g:airline_exclude_preview = 1
+    " hi CtrlSpaceSelected guifg=#586e75 guibg=#eee8d5 guisp=#839496 gui=reverse,bold ctermfg=10 ctermbg=7 cterm=reverse,bold
+    " hi CtrlSpaceNormal   guifg=#839496 guibg=#021B25 guisp=#839496 gui=NONE ctermfg=12 ctermbg=0 cterm=NONE
+    " hi CtrlSpaceSearch   guifg=#cb4b16 guibg=NONE gui=bold ctermfg=9 ctermbg=NONE term=bold cterm=bold
+    " hi CtrlSpaceStatus   guifg=#839496 guibg=#002b36 gui=reverse term=reverse cterm=reverse ctermfg=12 ctermbg=8
 
-    " 保存工程状态
-    let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-    let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-    let g:CtrlSpaceSaveWorkspaceOnExit = 1
-" }}}
+    " " 保存工程状态
+    " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+    " let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+    " let g:CtrlSpaceSaveWorkspaceOnExit = 1
+" " }}}
 
 
 " 标签导航

@@ -96,4 +96,12 @@ else
     python install.py --clang-completer
 fi
 
+echo "Step5: extra things"
+echo "create vim extra path"
+mkdir -p $HOME/.vimbackup $HOME/.vimundo $HOME/.cache
+echo "ycm extra config"
+cp -f $CURRENT_DIR/ycm/.ycm_extra_conf.py $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/
+chmod +x $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
+
+
 echo "Install Done!"
