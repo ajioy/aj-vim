@@ -1,4 +1,4 @@
-aj-vim
+﻿aj-vim
 =======================
 
 
@@ -212,6 +212,8 @@ let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 
 |63|[danro/rename.vim](https://github.com/danro/rename.vim)  | [-] 在Vim中为文件重命名 |
 |64|[pbrisbin/vim-mkdir](https://github.com/pbrisbin/vim-mkdir)  | [-] 创建不存在的目录 |
 |65|[Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)  | [-] nerdtree显示git状态 |
+|65|[lfv89/vim-interestingwords](https://github.com/lfv89/vim-interestingwords)  | [-] 高亮多个单词，可展示不同颜色|
+|66|[tenfyzhong/CompleteParameter.vim](https://github.com/tenfyzhong/CompleteParameter.vim)  | [x] 函数参数自动补全 |
 
 
 ------------------------
@@ -357,8 +359,23 @@ yssb or yss)    ({ Hello } world!)
 ysiw<em>    <em>Hello</em> world!
     
 17. vim-easy-align
-vipga=      对齐=
+vipga=      选中一段后按=对齐
 gaip=       选中后按=对齐
+
+=           Around the 1st occurrences
+2=          Around the 2nd occurrences
+3=          Around 3rd operators with =
+*=          Around all occurrences
+**=         Left/Right alternating alignment around all occurrences
+<Enter>     Switching between left/right/center alignment modes
+<Space>     Around 1st whitespaces
+2<Space>    Around 2nd whitespaces
+-<Space>    Around the last whitespaces
+-2<Space>   Around the 2nd to last whitespaces
+:           Around 1st colon
+<Right>:    Around 1st colon
+<Enter>=    Right alignment around 1st =
+<Enter>**=  Right-left alternating around =
 
 18. vim-expand-region
 v       扩大选中区
@@ -376,6 +393,13 @@ V       缩小选中区
 21. airline
 ->      移动至右边的buffer
 <=      移动至左边的buffer
+
+22. interestingwords
+,k      开启或关闭当前高亮
+,K      关闭当前高亮
+
+23. CompleteParameter
+ctrl+j  跳到下一个参数（注意先要确认填好当前函数参数才能去下一个）
 
 ```
 

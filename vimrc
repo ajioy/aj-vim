@@ -3,7 +3,7 @@
 " Author:  ajioy
 " Email: ajioy@hotmail.com
 " BlogPost: http://blog.csdn.net/ajioy
-" Last_modify: 2019-01-23
+" Last_modify: 2019/03/10
 " Sections:
 "       -> Initial Plugin 加载插件
 "       -> General Settings 基础设置

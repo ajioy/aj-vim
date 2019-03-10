@@ -29,6 +29,7 @@ call plug#begin('~/.vim/bundle')
 
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 " 以下插件是倒序
+" Plug 'lfv89/vim-interestingwords' " 高亮多个单词
 Plug 'terryma/vim-smooth-scroll'  " 让翻页更流畅、平滑
 
 " 使vim terminal配色与gui配色保持一致
@@ -130,7 +131,7 @@ Plug 'terryma/vim-multiple-cursors'
 " q - Quit CtrlSF window.
 Plug 'dyng/ctrlsf.vim'
 " incsearch
-" Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch.vim'
 " map /  <Plug>(incsearch-forward)
 " map ?  <Plug>(incsearch-backward)
 " map g/ <Plug>(incsearch-stay)
@@ -211,6 +212,7 @@ if count(g:bundle_groups, 'python')
     " Plug 'hdima/python-syntax'
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'tenfyzhong/CompleteParameter.vim'  " 自动补全函数参数
 
     " isort  https://github.com/timothycrosley/isort#readme + https://github.com/fisadev/vim-isort#installation
     " pip install isort
@@ -599,8 +601,8 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 " }}}
 
 " easyalign {{{
-    vmap <Leader>a <Plug>(EasyAlign)
-    nmap <Leader>a <Plug>(EasyAlign)
+    vmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
     if !exists('g:easy_align_delimiters')
     let g:easy_align_delimiters = {}
     endif
@@ -985,4 +987,15 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 " css {{{
 " }}}
 
+" 不能随便挪动位置
+" " CompleteParameter {{{
+inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+" imap <expr>(
+    ¦   ¦   " \ pumvisible() ?
+    ¦   ¦   " \ complete_parameter#pre_complete("()") :
+    ¦   ¦   " \ "\<Plug>delimitMate("
+smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+imap <c-k> <Plug>(complete_parameter#goto_previous_parameter))  
 "------------------------------------------- end of configs --------------------------------------------
