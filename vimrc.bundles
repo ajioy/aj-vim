@@ -991,9 +991,9 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 " " CompleteParameter {{{
 inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 " imap <expr>(
-    ¦   ¦   " \ pumvisible() ?
-    ¦   ¦   " \ complete_parameter#pre_complete("()") :
-    ¦   ¦   " \ "\<Plug>delimitMate("
+    " ¦   ¦   \ pumvisible() ?
+    " ¦   ¦   \ complete_parameter#pre_complete("()") :
+    " ¦   ¦   \ "\<Plug>delimitMate("
 smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
