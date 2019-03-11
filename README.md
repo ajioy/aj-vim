@@ -57,7 +57,7 @@ brew install the_silver_searcher
 ##### **2.2 python**
 
 ```
-sudo pip install flake8 yapf
+sudo pip install flake8 yapf jedi
 ```
 
 ##### **2.3 javascript(you can ignore)**
@@ -214,6 +214,7 @@ let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 
 |65|[Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)  | [-] nerdtree显示git状态 |
 |65|[lfv89/vim-interestingwords](https://github.com/lfv89/vim-interestingwords)  | [-] 高亮多个单词，可展示不同颜色|
 |66|[tenfyzhong/CompleteParameter.vim](https://github.com/tenfyzhong/CompleteParameter.vim)  | [x] 函数参数自动补全 |
+|67|[davidhalter/jedi-vim](https://github.com/tenfyzhong/davidhalter/jedi-vim)  | [x] python补全第三方库，结合ycm使用，如果是c, 将其取消 |
 
 
 ------------------------
@@ -401,6 +402,11 @@ V       缩小选中区
 23. CompleteParameter
 ctrl+j  跳到下一个参数（注意先要确认填好当前函数参数才能去下一个）
 
+24. Jedi-vim
+,d  跳至函数定义或文件
+,g  同上
+,r  重命名参数
+K   查看文档
 ```
 
 ------------------------

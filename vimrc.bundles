@@ -29,6 +29,7 @@ call plug#begin('~/.vim/bundle')
 
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 " 以下插件是倒序
+Plug 'davidhalter/jedi-vim' " python补全第三方库
 " Plug 'lfv89/vim-interestingwords' " 高亮多个单词
 Plug 'terryma/vim-smooth-scroll'  " 让翻页更流畅、平滑
 
@@ -531,6 +532,21 @@ endif
 
 " }}}
 
+" jedi.vim {{{
+" let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+" let g:jedi#usages_command = "<leader>n"
+" let g:jedi#completions_command = "<C-[>"
+let g:jedi#rename_command = "<leader>r"
+" 关闭补全，自动补全用youcompleteme
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_enabled = 0
+" }}}
+
 " ctags, 可以展示函数原型
 set tags+=/usr/include/tags
 set tags+=~/.vim/systags
@@ -988,14 +1004,17 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 " }}}
 
 " 不能随便挪动位置
-" " CompleteParameter {{{
+" CompleteParameter {{{
 inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 " imap <expr>(
     " ¦   ¦   \ pumvisible() ?
     " ¦   ¦   \ complete_parameter#pre_complete("()") :
     " ¦   ¦   \ "\<Plug>delimitMate("
-smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-imap <c-k> <Plug>(complete_parameter#goto_previous_parameter))  
+smap <c-[> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-[> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-]> <Plug>(complete_parameter#goto_previous_parameter)
+imap <c-]> <Plug>(complete_parameter#goto_previous_parameter))  
+" }}}
+
+
 "------------------------------------------- end of configs --------------------------------------------
