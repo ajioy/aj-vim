@@ -535,13 +535,13 @@ map <Leader>sa ggVG
 nnoremap gv `[v`]
 
 " select block
-nnoremap <leader>v V`}
+" nnoremap <leader>v V`}
 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
 
 " kj 替换 Esc
-inoremap kj <Esc>
+" inoremap kj <Esc>
 
 " 滚动Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>

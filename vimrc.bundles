@@ -1010,10 +1010,10 @@ inoremap <silent><expr> ( complete_parameter#pre_complete("()")
     " ¦   ¦   \ pumvisible() ?
     " ¦   ¦   \ complete_parameter#pre_complete("()") :
     " ¦   ¦   \ "\<Plug>delimitMate("
-smap <c-[> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-[> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-]> <Plug>(complete_parameter#goto_previous_parameter)
-imap <c-]> <Plug>(complete_parameter#goto_previous_parameter))  
+smap <c-;> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-;> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-'> <Plug>(complete_parameter#goto_previous_parameter)
+imap <c-'> <Plug>(complete_parameter#goto_previous_parameter))  
 " }}}
 
 
