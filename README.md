@@ -320,6 +320,7 @@ ctrl+n    相对/绝对行号切换
     11. ',zz' 代码折叠toggle
     12. python使用"""添加docstring会自动补全三引号
     13. Python使用#进行注释时, 自动缩进
+    14. 搜索后经常用:nohl消除高亮，使用频繁，map到<BackSpace>即可消除
     
 11. LeaderF：
 ,ll     递归当前目录所有文件，注意，.root/.svn/.git所在目录
