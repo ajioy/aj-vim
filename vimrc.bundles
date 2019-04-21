@@ -178,7 +178,7 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 " ctrlspace
 " Plug 'vim-ctrlspace/vim-ctrlspace', { 'on': 'NERDTreeToggle'}
 " tagbar
-Plug 'majutsushi/tagbar', { 'for':['python', 'ruby', 'html', 'javascript', 'css'] }
+Plug 'majutsushi/tagbar', { 'for':['python', 'c', 'cpp', 'ruby', 'html', 'javascript', 'css'] }
 
 " text object
 " 支持自定义文本对象

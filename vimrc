@@ -126,7 +126,7 @@ set selectmode=mouse,key
 " 去掉输入错误的提示声音
 set novisualbell
 set noerrorbells
-set t_vb=
+set vb t_vb=
 set tm=500
 
 " Remember info about open buffers on close
