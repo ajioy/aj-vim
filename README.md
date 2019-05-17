@@ -4,7 +4,7 @@
 
 > VERSION: 1.0
 
-> LAST_UPDATE_TIME: 2019-03-08
+> LAST_UPDATE_TIME: 2019-05-17
 
 > REFERENCE: k-vim/ https://github.com/wklken/k-vim
 
@@ -181,7 +181,7 @@ let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 
 |32|[tpope/vim-repeat](https://github.com/tpope/vim-repeat)  | [x] 重复上一次操作，加强surround功能 |
 |33|[tpope/vim-surround](https://github.com/tpope/vim-surround)  | [x] 快速的删除、修改和添加 括号、引号、XML标签等等 |
 |34|[junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)  | [x] 对齐赋值语句 |
-|35|[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)  | [x] 文件中跳转，更高效的移动 [,, + w/fx/h/j/k/l] |
+|35|[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)  | [x] 文件中跳转，更高效的移动 |
 |36|[unblevable/quick-scope](https://github.com/unblevable/quick-scope)  | [-] 更高效的行内移动, f/F/t/T, 才触发 |
 |37|[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)  | [-] 用%成对标签跳转 |
 |38|[kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)  | [-] 显示marks - 方便自己进行标记和跳转 |
@@ -405,10 +405,18 @@ ctrl+;  跳到下一个参数（注意先要确认填好当前函数参数才能
 ctrl+'  跳到上一个参数
 
 24. Jedi-vim
-,d  跳至函数定义或文件
-,g  同上
-,r  重命名参数
-K   查看文档
+,d      跳至函数定义或文件
+,g      同上
+,r      重命名参数
+K       查看文档
+
+25. vim-easymotion
+,,w/b   跳到当前光标前后的位置
+,,s     搜索跳转，光标前后位置
+,,h/j/k/l 当前行、列搜索跳转
+,,f/F/t/T 当前光标行内前后搜索跳转
+,,.     重复上一次跳转
 ```
 
 ------------------------
+
