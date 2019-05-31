@@ -446,7 +446,7 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 " 去掉搜索高亮
-noremap <silent><BackSpace> :nohls<CR>
+noremap <silent><leader>/ :nohls<CR>
 
 " switch # *
 nnoremap # *
@@ -518,6 +518,8 @@ vnoremap > >gv
 " y$ -> Y Make Y behave like other capitals
 map Y y$
 
+" 共享系统剪贴板
+set clipboard=unnamed
 " 复制选中区到系统剪切板中
 vnoremap <leader>y "+y
 " 设置快捷键将系统剪贴板内容粘贴至 vim
