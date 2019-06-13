@@ -212,8 +212,8 @@ if count(g:bundle_groups, 'python')
     " pythonsyntax
     " Plug 'hdima/python-syntax'
     Plug 'hynek/vim-python-pep8-indent'
-    Plug 'Glench/Vim-Jinja2-Syntax'
-    Plug 'tenfyzhong/CompleteParameter.vim'  " 自动补全函数参数
+    " Plug 'Glench/Vim-Jinja2-Syntax'
+    " Plug 'tenfyzhong/CompleteParameter.vim'  " 自动补全函数参数
 
     " isort  https://github.com/timothycrosley/isort#readme + https://github.com/fisadev/vim-isort#installation
     " pip install isort
@@ -236,12 +236,12 @@ endif
 if count(g:bundle_groups, 'javascript')
     " javascript
     " 注意: syntax这个插件要放前面
-    Plug 'othree/yajs.vim' | Plug 'pangloss/vim-javascript'
+    " Plug 'othree/yajs.vim' | Plug 'pangloss/vim-javascript'
     " Plug 'jelera/vim-javascript-syntax' | Plug 'pangloss/vim-javascript'
 
     " TODO: jquery? for, remove or keep
-    Plug 'othree/javascript-libraries-syntax.vim'
-    let g:used_javascript_libs = 'jquery,underscore,backbone'
+    " Plug 'othree/javascript-libraries-syntax.vim'
+    " let g:used_javascript_libs = 'jquery,underscore,backbone'
 
     " for javascript 自动补全, 配合YCM, 需要安装全局环境的（非nvm中) node.js&npm
     " 安装完成后还需要在 bundle/tern_for_vim 下执行 npm install 安装依赖 `cd ~/.vim/bundle/tern_for_vim && npm install`
@@ -251,7 +251,7 @@ endif
 
 
 if count(g:bundle_groups, 'coffeescript')
-    Plug 'kchmck/vim-coffee-script'
+    " Plug 'kchmck/vim-coffee-script'
 endif
 
 " if count(g:bundle_groups, 'shell')
@@ -260,7 +260,7 @@ endif
 
 if count(g:bundle_groups, 'json')
     " json
-    Plug 'elzr/vim-json', {'for': 'json'}
+    " Plug 'elzr/vim-json', {'for': 'json'}
 endif
 
 if count(g:bundle_groups, 'css')
@@ -275,7 +275,7 @@ endif
 
 if count(g:bundle_groups, 'less')
     " ###### vim.less : less 自动更新##########
-    Plug 'groenewege/vim-less'
+    " Plug 'groenewege/vim-less'
     " autocmd BufWritePost *.less :!lessc % > %:p:r.css
 endif
 
@@ -345,6 +345,9 @@ call plug#end()
     let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
     let g:Lf_WorkingDirectoryMode = 'ac'
     let g:Lf_WindowHeight = 0.30
+    " after VIM starts, it will refresh cache every time LeaderF starts
+    let g:Lf_UseCache = 0
+    let g:Lf_UseMemoryCache = 0
     " let g:Lf_StlColorscheme = 'powerline'
     nmap <leader>lf :LeaderfFunction<CR>
     nmap <leader>lb :LeaderfBuffer<CR>
@@ -1003,18 +1006,18 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 " css {{{
 " }}}
 
-" 不能随便挪动位置
-" CompleteParameter {{{
-inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-" imap <expr>(
-    " ¦   ¦   \ pumvisible() ?
-    " ¦   ¦   \ complete_parameter#pre_complete("()") :
-    " ¦   ¦   \ "\<Plug>delimitMate("
-smap <c-;> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-;> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-'> <Plug>(complete_parameter#goto_previous_parameter)
-imap <c-'> <Plug>(complete_parameter#goto_previous_parameter))  
-" }}}
+" " 不能随便挪动位置
+" " CompleteParameter {{{
+" inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+" " imap <expr>(
+    " " ¦   ¦   \ pumvisible() ?
+    " " ¦   ¦   \ complete_parameter#pre_complete("()") :
+    " " ¦   ¦   \ "\<Plug>delimitMate("
+" smap <c-;> <Plug>(complete_parameter#goto_next_parameter)
+" imap <c-;> <Plug>(complete_parameter#goto_next_parameter)
+" smap <c-'> <Plug>(complete_parameter#goto_previous_parameter)
+" imap <c-'> <Plug>(complete_parameter#goto_previous_parameter))  
+" " }}}
 
 
 "------------------------------------------- end of configs --------------------------------------------
