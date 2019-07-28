@@ -4,11 +4,9 @@
 
 > VERSION: 1.0
 
-> LAST_UPDATE_TIME: 2019-05-17
+> LAST_UPDATE_TIME: 2019-07-28
 
 > REFERENCE: k-vim/ https://github.com/wklken/k-vim
-
-> 声明：本repo基于k-vim修改而来
 
 
 # Screenshots
@@ -139,82 +137,137 @@ let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 
 :PlugStatus      Check the status of plugins  查看插件状态
 ```
 
-
-
 ### **Plugin List**
-
-
-
+#### navigation
 |序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
 |-| ---   | ------|
-|1|[Yggdroot/LeaderF](https://github.com/Yggdroot/LeaderF)  | [x] 模糊查找，文件、函数列表 |
-|2|[dyng/ctrlsf.vim](https://github.com/dyng/ctrlsf.vim)  | [x] 全局关键字搜索 |
-|3|[brooth/far.vim](https://github.com/brooth/far.vim)  | [x] 全局查找替换 |
-|4|[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)  | [x] 目录树 |
-|5|[jistr/vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)  | [x] 增强目录树，与之成套，保持目录树状态、优化tab标题 |
-|6|[majutsushi/tagbar](https://github.com/majutsushi/tagbar)  | [x] 变量及函数列表 |
-|7|[vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)  | [x] 状态栏增强 |
-|8|[vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)  | [x] 状态栏主题配色 |
-|9|[vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace)  | [x] buffer管理，工作空间管理 |
-|10|['Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)  | [x] 最好用的代码补全(c/c++,python)，启动较费时 |
-|11|[w0rp/ale](https://github.com/w0rp/ale)  | [x] 异步语法检查 |
-|12|[SirVer/ultisnips](https://github.com/SirVer/ultisnips)  | [x] 代码片段快速插入，if/for/while...etc |
-|13|[honza/vim-snippets](https://github.com/honza/vim-snippets)  | [x] 代码片段资源，需要学习，依赖ultisnips |
-|14|[ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)  | [x] 自动生成并维护tags |
-|15|[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)  | [x] 快速注释 |
-|16|[Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)  | [x] 缩进竖线 |
-|17|[kana/vim-textobj-user](https://github.com/kana/vim-textobj-user)  | [x] 支持自定义文本对象 |
-|18|[kana/vim-textobj-line](https://github.com/kana/vim-textobj-line)  | [x] 增加行文本对象， l   dal yal cil |
-|19|[kana/vim-textobj-entire](https://github.com/kana/vim-textobj-entire)  | [x] 增加文件文本对象: e   dae yae cie |
-|20|[kana/vim-textobj-indent](https://github.com/kana/vim-textobj-indent)  | [x] 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块 |
-|21|[haya14busa/incsearch.vim](https://github.com/haya14busa/incsearch.vim)  | [-] 增强当前文件搜索/search |
-|22|[terryma/vim-expand-region](https://github.com/terryma/vim-expand-region)  | [x] 扩展选中区域 |
-|23|[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)  | [x] 多光标选中编辑 |
-|24|[mhinz/vim-startify](https://github.com/mhinz/vim-startify)  | [x] 显示最近打开过的文件MRU |
-|25|[terryma/vim-smooth-scroll](https://github.com/terryma/vim-smooth-scroll)| [x] 翻页更平滑流畅 | 
-|26|[altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)  | [x] 经典主题配色，暗色调 |
-|27|[tomasr/molokai](https://github.com/tomasr/molokai)  | [x] 经典主题配色 |
-|28|[ajioy/ajcolor](https://github.com/ajioy/ajcolor)  | [x] ajioy主题配色，增强python及c/c++语法 |
-|29|[vim-scripts/CSApprox](https://github.com/vim-scripts/CSApprox)  | [x] vim terminal配色与gui配色一致 |
-|30|[kien/rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim)  | [-] 括号显示增强，缤纷多彩 |
-|31|[Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)  | [x] 自动补全单引号，双引号等 |
-|32|[tpope/vim-repeat](https://github.com/tpope/vim-repeat)  | [x] 重复上一次操作，加强surround功能 |
-|33|[tpope/vim-surround](https://github.com/tpope/vim-surround)  | [x] 快速的删除、修改和添加 括号、引号、XML标签等等 |
-|34|[junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)  | [x] 对齐赋值语句 |
-|35|[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)  | [x] 文件中跳转，更高效的移动 |
-|36|[unblevable/quick-scope](https://github.com/unblevable/quick-scope)  | [-] 更高效的行内移动, f/F/t/T, 才触发 |
-|37|[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)  | [-] 用%成对标签跳转 |
-|38|[kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)  | [-] 显示marks - 方便自己进行标记和跳转 |
-|39|[thinca/vim-quickrun](https://github.com/thinca/vim-quickrun)  | [x] 快速执行当前文件, 例如.py/.rb/*.sh等等, 用于快速验证一些代码实现 |
-|40|[skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)  | [-] 异步运行代码输出结果，编译c/c++不影响代码编辑 |
-|41|[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  | [x] Git包装器，在vim编辑器中完成git操作 |
-|42|[airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)  | [x] shows a git diff in the gutter (sign column) and stages/undoes hunks |
-|43|[sjl/gundo.vim](https://github.com/sjl/gundo.vim)  | [-] Gundo.vim is Vim plugin to visualize your Vim undo tree |
-|44|[christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)  | [x] For tmux navigator Ctrl-hjkl |
-|45|[hynek/vim-python-pep8-indent](https://github.com/hynek/vim-python-pep8-indent)  | [x] python PEP8缩进 |
-|46|[Glench/Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)  | [x] jinja语法 |
-|47|[fisadev/vim-isort](https://github.com/fisadev/vim-isort)  | [-] sort python imports |
-|48|[plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown)  | [-] markdown |
-|49|[suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)  | [-] markdown preview |
-|50|[vim-ruby/vim-ruby](https://github.com/vim-ruby/vim-ruby)  | [-] ruby语法 |
-|51|[nelstrom/vim-textobj-rubyblock](https://github.com/nelstrom/vim-textobj-rubyblock)  | [-] ruby文本对象 |
-|52|[tpope/vim-endwise](https://github.com/tpope/vim-endwise)  | [-] 自动补全end |
-|53|[Shougo/vimshell.vim](https://github.com/Shougo/vimshell.vim)  | [-] shell script |
-|54|['mattn/emmet-vim](https://github.com/mattn/emmet-vim)  | [x] html语法补全 |
-|55|[docunext/closetag.vim](https://github.com/docunext/closetag.vim)  | [-] 自动补全html/xml标签 |
-|56|[othree/yajs.vim](https://github.com/othree/yajs.vim)  | [x] Yet Another JavaScript Syntax |
-|57|[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)  | [x] JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation. |
-|58|[othree/javascript-libraries-syntax.vim](https://github.com/othree/javascript-libraries-syntax.vim)  | [x] Syntax file for JavaScript libraries，Vue，jQuery...etc |
-|59|[kchmck/vim-coffee-script](https://github.com/kchmck/vim-coffee-script)  | [-] coffee script |
-|60|[elzr/vim-json](https://github.com/elzr/vim-json)  | [x] json |
-|61|[lilydjwg/colorizer](https://github.com/lilydjwg/colorizer)  | [x] 显示十六进制颜色 |
-|62|[groenewege/vim-less](https://github.com/groenewege/vim-less)  | [-] less |
-|63|[danro/rename.vim](https://github.com/danro/rename.vim)  | [-] 在Vim中为文件重命名 |
-|64|[pbrisbin/vim-mkdir](https://github.com/pbrisbin/vim-mkdir)  | [-] 创建不存在的目录 |
-|65|[Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)  | [-] nerdtree显示git状态 |
-|65|[lfv89/vim-interestingwords](https://github.com/lfv89/vim-interestingwords)  | [-] 高亮多个单词，可展示不同颜色|
-|66|[tenfyzhong/CompleteParameter.vim](https://github.com/tenfyzhong/CompleteParameter.vim)  | [x] 函数参数自动补全 |
-|67|[davidhalter/jedi-vim](https://github.com/tenfyzhong/davidhalter/jedi-vim)  | [x] python补全第三方库，结合ycm使用，如果是c, 将其取消 |
+|1|[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)  | [x] 目录树，文件及目录管理，支持创建、修改、删除节点 |
+|2|[jistr/vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)  | [x] 增强目录树，与之成套，保持目录树状态、优化tab标题 |
+|3|[danro/rename.vim](https://github.com/danro/rename.vim)  | [-] 在Vim中为文件重命名 |
+|4|[pbrisbin/vim-mkdir](https://github.com/pbrisbin/vim-mkdir)  | [-] 创建不存在的目录 |
+|5|[mhinz/vim-startify](https://github.com/mhinz/vim-startify)  | [x] 显示最近打开过的文件MRU |
+|6|[vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)  | [x] 状态栏增强 |
+|7|[vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)  | [x] 状态栏主题配色 |
+|8|[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)  | [-] 文件中跳转，更高效的移动 |
+|9|[unblevable/quick-scope](https://github.com/unblevable/quick-scope)  | [-] 更高效的行内移动, f/F/t/T, 才触发 |
+|10|[kshenoy/vim-signature](https://github.com/kshenoy/vim-signature)  | [x] 显示marks - 方便自己进行标记和跳转 |
+|11|[lfv89/vim-interestingwords](https://github.com/lfv89/vim-interestingwords)  | [-] 高亮多个单词，可展示不同颜色|
+|12|[itchyny/vim-cursorword](https://github.com/itchyny/vim-cursorword)  | [x] 显示光标下单词下划线，当前buffer内所有
+|13|[terryma/vim-smooth-scroll](https://github.com/terryma/vim-smooth-scroll)| [x] 翻页更平滑流畅 |
+|14|[vim-ctrlspace/vim-ctrlspace](https://github.com/vim-ctrlspace/vim-ctrlspace)  | [-] buffer管理，工作空间管理 |
+|15|[christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)  | [x] For tmux navigator Ctrl-hjkl |
+
+#### find and replace
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[Yggdroot/LeaderF](https://github.com/Yggdroot/LeaderF)  | [x] 模糊查找，文件列表、函数列表、buffer列表、tag列表 |
+|2|[dyng/ctrlsf.vim](https://github.com/dyng/ctrlsf.vim)  | [x] 全局关键字搜索，展示上下文，依赖ag/rg/ack/ |
+|3|[brooth/far.vim](https://github.com/brooth/far.vim)  | [x] 全局查找替换，可批量撤消|
+|4|[haya14busa/incsearch.vim](https://github.com/haya14busa/incsearch.vim)  | [-] 增强当前文件搜索/search |
+
+#### auto complete
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)  | [x] 最好用的代码补全(c/c++,python)，启动费时，安装复杂 |
+|2|[tenfyzhong/CompleteParameter.vim](https://github.com/tenfyzhong/CompleteParameter.vim)  | [-] 函数参数自动补全 |
+|3|[SirVer/ultisnips](https://github.com/SirVer/ultisnips)  | [x] 代码片段快速插入，if/for/while...etc |
+|4|[honza/vim-snippets](https://github.com/honza/vim-snippets)  | [x] 代码片段资源，需要学习，依赖ultisnips |
+|5|[ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)  | [x] 自动生成并维护tags |
+|6|[Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)  | [x] 自动补全单引号，双引号等 |
+
+#### universal
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[terryma/vim-expand-region](https://github.com/terryma/vim-expand-region)  | [x] 扩展选中区域 |
+|2|[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)  | [x] 多光标选中编辑 |
+|3|[tpope/vim-repeat](https://github.com/tpope/vim-repeat)  | [x] 重复上一次操作，加强surround功能 |
+|4|[tpope/vim-surround](https://github.com/tpope/vim-surround)  | [x] 快速的删除、修改和添加 括号、引号、XML标签等等 |
+|5|[junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)  | [x] 对齐赋值语句 |
+|6|[godlygeek/tabular](https://github.com/godlygeek/tabular)  | [x] 快速对齐，排版|
+|7|[kien/rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim)  | [-] 括号显示增强，缤纷多彩 |
+|8|[sjl/gundo.vim](https://github.com/sjl/gundo.vim)  | [-] a Vim plugin to visualize your Vim undo tree |
+
+#### text object
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[kana/vim-textobj-user](https://github.com/kana/vim-textobj-user)  | [-] 支持自定义文本对象 |
+|2|[kana/vim-textobj-line](https://github.com/kana/vim-textobj-line)  | [-] 增加行文本对象， l   dal yal cil |
+|3|[kana/vim-textobj-entire](https://github.com/kana/vim-textobj-entire)  | [-] 增加文件文本对象: e   dae yae cie |
+|4|[kana/vim-textobj-indent](https://github.com/kana/vim-textobj-indent)  | [-] 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块 |
+
+#### git
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)  | [x] Git包装器，在vim编辑器中完成git操作 |
+|2|[airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)  | [x] shows a git diff in the gutter (sign column) and stages/undoes hunks |
+|3|[Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)  | [-] nerdtree显示git状态 |
+
+#### language modules
+##### common #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[majutsushi/tagbar](https://github.com/majutsushi/tagbar)  | [x] 变量及函数列表，体验比taglist更好 |
+|2|[w0rp/ale](https://github.com/w0rp/ale)  | [x] 异步语法检查 |
+|3|[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)  | [x] 快速注释 |
+|4|[thinca/vim-quickrun](https://github.com/thinca/vim-quickrun)  | [x] 快速执行当前文件, 例如.py/.rb/.sh等等, 用于快速验证一些代码实现 |
+|5|[skywind3000/asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)  | [-] 异步运行代码输出结果，编译c/c++不影响代码编辑 |
+
+##### python #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[hynek/vim-python-pep8-indent](https://github.com/hynek/vim-python-pep8-indent)  | [x] python PEP8缩进 |
+|2|[fisadev/vim-isort](https://github.com/fisadev/vim-isort)  | [-] sort python imports |
+|3|[davidhalter/jedi-vim](https://github.com/davidhalter/jedi-vim)  | [x] python补全第三方库，结合ycm使用，如果是c, 将其取消 |
+|4|[Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)  | [x] 缩进竖线 |
+
+##### c/c++ #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1||todo|
+
+##### frontend #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|['mattn/emmet-vim](https://github.com/mattn/emmet-vim)  | [x] html语法补全 |
+|2|[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)  | [-] 用%成对标签跳转 |
+|3|[Glench/Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)  | [x] jinja语法 |
+|4|[docunext/closetag.vim](https://github.com/docunext/closetag.vim)  | [-] 自动补全html/xml标签 |
+|5|[othree/yajs.vim](https://github.com/othree/yajs.vim)  | [-] Yet Another JavaScript Syntax |
+|6|[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)  | [x] JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation. |
+|7|[othree/javascript-libraries-syntax.vim](https://github.com/othree/javascript-libraries-syntax.vim)  | [x] Syntax file for JavaScript libraries，Vue，jQuery...etc |
+|8|[kchmck/vim-coffee-script](https://github.com/kchmck/vim-coffee-script)  | [-] coffee script |
+|9|[lilydjwg/colorizer](https://github.com/lilydjwg/colorizer)  | [-] 显示十六进制颜色 |
+|10|[groenewege/vim-less](https://github.com/groenewege/vim-less)  | [-] less syntax |
+|11|[elzr/vim-json](https://github.com/elzr/vim-json)  | [x] json syntax |
+
+##### markdown #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown)  | [x] markdown |
+|2|[suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)  | [-] markdown preview |
+|3|[iamcco/markdown-preview.vim](https://github.com/iamcco/markdown-preview.vim)  | [x] markdown实时预览，支持浏览器同步滚屏
+
+##### ruby #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[vim-ruby/vim-ruby](https://github.com/vim-ruby/vim-ruby)  | [-] ruby语法 |
+|2|[tpope/vim-endwise](https://github.com/tpope/vim-endwise)  | [-] 自动补全end |
+|3|[nelstrom/vim-textobj-rubyblock](https://github.com/nelstrom/vim-textobj-rubyblock)  | [-] ruby文本对象 |
+
+##### linux shell #####
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[Shougo/vimshell.vim](https://github.com/Shougo/vimshell.vim)  | [-] shell script |
+
+#### color scheme
+|序号| 插件名        | 功能(建议 必选[x] 可选[-])   |
+|-| ---   | ------|
+|1|[vim-scripts/CSApprox](https://github.com/vim-scripts/CSApprox)  | [x] vim terminal配色与gui配色一致 |
+|2|[whatyouhide/vim-gotham](https://github.com/whatyouhide/vim-gotham)  | [x] 一款暗黑酷炫配色主题
+|3|[altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)  | [-] 经典主题配色，暗色调 |
+|4|[tomasr/molokai](https://github.com/tomasr/molokai)  | [-] 经典主题配色 |
+|5|[ajioy/ajcolor](https://github.com/ajioy/ajcolor)  | [x] ajioy主题配色，增强python及c/c++语法 |
+
 
 
 ------------------------

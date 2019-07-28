@@ -29,9 +29,20 @@ call plug#begin('~/.vim/bundle')
 
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 " 以下插件是倒序
-Plug 'davidhalter/jedi-vim' " python补全第三方库
-" Plug 'lfv89/vim-interestingwords' " 高亮多个单词
-Plug 'terryma/vim-smooth-scroll'  " 让翻页更流畅、平滑
+" 光标下单词显示下划线
+Plug 'itchyny/vim-cursorword'
+
+" 一款暗黑色配色主题
+" Plug 'whatyouhide/vim-gotham'
+
+" python补全第三方库
+Plug 'davidhalter/jedi-vim'
+
+" 高亮多个单词
+" Plug 'lfv89/vim-interestingwords'
+
+" 让翻页更流畅、平滑
+Plug 'terryma/vim-smooth-scroll'
 
 " 使vim terminal配色与gui配色保持一致
 Plug 'vim-scripts/CSApprox'
@@ -40,7 +51,7 @@ Plug 'vim-scripts/CSApprox'
 Plug 'ludovicchabant/vim-gutentags'
 
 " 异步运行代码输出结果
-" Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
  " 模糊查找
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
@@ -58,7 +69,7 @@ Plug 'brooth/far.vim'
 if v:version < 800
     Plug 'scrooloose/syntastic'
 else
-    " Plug 'w0rp/ale'
+    Plug 'w0rp/ale'
 endif
 
 " Group dependencies, vim-snippets depends on ultisnips
@@ -139,7 +150,7 @@ Plug 'haya14busa/incsearch.vim'
 
 " quick run
 " quickrun
-Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-quickrun'
 
 " git
 " fugitive
