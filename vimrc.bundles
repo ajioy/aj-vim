@@ -55,8 +55,8 @@ Plug 'skywind3000/asyncrun.vim'
  " 模糊查找
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
-" 缩进竖线
-Plug 'Yggdroot/indentLine'
+" 缩进竖线, 会影响json和md特殊符号的显示
+Plug 'Yggdroot/indentLine', { 'for':['python', 'c', 'cpp', 'html', 'javascript', 'css'] }
 
 " 显示最近打开过的文件MRU
 Plug 'mhinz/vim-startify'
@@ -207,14 +207,61 @@ if count(g:bundle_groups, 'tmux')
     Plug 'christoomey/vim-tmux-navigator'
 endif
 
-" if count(g:bundle_groups, 'markdown')
-    " Plug 'plasticboy/vim-markdown', {'for': 'md'}
-    " " https://github.com/suan/vim-instant-markdown
-    " " npm -g install instant-markdown-d
-    " " Plug 'suan/vim-instant-markdown'
-    " " let g:instant_markdown_slow = 1
-    " " let g:instant_markdown_autostart = 0
-    " " map <F12> :InstantMarkdownPreview<CR>
+if count(g:bundle_groups, 'markdown')
+    Plug 'plasticboy/vim-markdown', {'for': 'md'}
+    " https://github.com/suan/vim-instant-markdown
+    " npm -g install instant-markdown-d
+    " 只支持OSX 和 Unix/Linuxes
+    " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+    " let g:instant_markdown_slow = 1
+    " let g:instant_markdown_autostart = 0
+    " " let g:instant_markdown_open_to_the_world = 1 
+    " " let g:instant_markdown_allow_unsafe_content = 1
+    " " let g:instant_markdown_allow_external_content = 0
+    " " let g:instant_markdown_mathjax = 1
+    " map <leader>md :InstantMarkdownPreview<CR>
+    " map <leader>ms :InstantMarkdownStop<CR>
+    Plug 'iamcco/markdown-preview.vim'
+    " markdown-preview {{{
+        " for normal mode
+        nmap <silent> <F8> <Plug>MarkdownPreview
+        " for insert mode
+        imap <silent> <F8> <Plug>MarkdownPreview
+        " for normal mode
+        nmap <silent> <F9> <Plug>StopMarkdownPreview
+        " for insert mode
+        imap <silent> <F9> <Plug>StopMarkdownPreview
+    " }}}
+
+    Plug 'dhruvasagar/vim-table-mode'
+    Plug 'mzlogin/vim-markdown-toc'
+    " vim-table-mode {{{
+        " Use this option to define the table corner character
+        let g:table_mode_corner = '|'
+        " Use this option to define the delimiter which used by
+        let g:table_mode_delimiter = ' '
+        let g:table_mode_corner_corner='+'
+        let g:table_mode_header_fillchar='='
+    " }}}
+    " shortcut mapping {{{
+        " <++> is a placeholder
+        autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
+        autocmd Filetype markdown inoremap ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
+        autocmd Filetype markdown inoremap ,n ---<Enter><Enter>
+        autocmd Filetype markdown inoremap ,b **** <++><Esc>F*hi
+        autocmd Filetype markdown inoremap ,s ~~~~ <++><Esc>F~hi
+        autocmd Filetype markdown inoremap ,i ** <++><Esc>F*i
+        autocmd Filetype markdown inoremap ,d `` <++><Esc>F`i
+        autocmd Filetype markdown inoremap ,c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
+        autocmd Filetype markdown inoremap ,h ====<Space><++><Esc>F=hi
+        autocmd Filetype markdown inoremap ,p ![](<++>) <++><Esc>F[a
+        autocmd Filetype markdown inoremap ,a [](<++>) <++><Esc>F[a
+        autocmd Filetype markdown inoremap ,1 #<Space><Enter><++><Esc>kA
+        autocmd Filetype markdown inoremap ,2 ##<Space><Enter><++><Esc>kA
+        autocmd Filetype markdown inoremap ,3 ###<Space><Enter><++><Esc>kA
+        autocmd Filetype markdown inoremap ,4 ####<Space><Enter><++><Esc>kA
+        autocmd Filetype markdown inoremap ,l --------<Enter>
+    " }}}
 " endif
 
 
@@ -407,10 +454,10 @@ call plug#end()
 
 " indentLine {{{
     " 代码缩进线标志线
-    let g:indentLine_char = '¦' 
-    let g:indentLine_color_term = 239 
+    let g:indentLine_char = '¦'
+    let g:indentLine_color_term = 239
     "映射到ctrl+i键 
-    " map <C-i> :IndentLinesToggle<CR> 
+    map <C-i> :IndentLinesToggle<CR> 
 "}}}
 
 "
@@ -990,16 +1037,6 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 
 " pythonsyntax {{{
     let python_highlight_all = 1
-" }}}
-
-" piv {{{
-    let g:DisableAutoPHPFolding = 1
-" }}}
-
-
-
-" markdown {{{
-    let g:vim_markdown_folding_disabled=1
 " }}}
 
 
