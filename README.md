@@ -4,7 +4,7 @@
 
 > VERSION: 1.0
 
-> LAST_UPDATE_TIME: 2019-07-28
+> LAST_UPDATE_TIME: 2019-08-15
 
 > REFERENCE: k-vim/ https://github.com/wklken/k-vim
 
@@ -390,6 +390,10 @@ ctrl+n    相对/绝对行号切换
 ,F      选中关键字后自动搜索
 ,o      打开搜索结果面板
 ,t      切换打开/关闭搜索结果面板
+:CtrlSF -R -I foo.*  大小写不敏感
+:CtrlSF -W 'foo'   只搜索整个单词
+:CtrlSF ''def foo():' 包含空格的搜索，要加引号
+ctrl+c  取消异步搜索任务
 
 
 13. Far：
