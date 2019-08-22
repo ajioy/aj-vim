@@ -30,6 +30,8 @@ call plug#begin('~/.vim/bundle')
 " 移动光标到插件名上, 使用'#'快速跳转到每个插件的配置处
 " 以下插件按使用时间倒序排列
 
+" c/c++ 头文件与实现文件相切换
+Plug 'derekwyatt/vim-fswitch', {'for':['c', 'cpp']}
 " 会话管理，存储与恢复
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 
@@ -632,17 +634,22 @@ let g:jedi#completions_enabled = 0
 " }}}
 
 " ctags, 可以展示函数原型
-set tags+=/usr/include/tags
-set tags+=~/.vim/systags
-set tags+=~/.vim/x86_64-linux-gnu-systags
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_semantic_triggers = { 
-  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
-  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
-  \   'python' : ['.'],
-  \   'ruby' : ['.', '::'],
-  \ }
-let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
+" set tags+=/usr/include/tags
+" set tags+=~/.vim/systags
+" set tags+=~/.vim/x86_64-linux-gnu-systags
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_semantic_triggers = { 
+  " \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+  " \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+  " \   'python' : ['.'],
+  " \   'ruby' : ['.', '::'],
+  " \ }
+" let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
+"正向遍历同名标签
+nmap <Leader>= :tnext<CR>
+" 反向遍历同名标签
+nmap <Leader>- :tprevious<CR>
+
 
 " ultisnips {{{
     let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -1107,5 +1114,9 @@ let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 " imap <c-'> <Plug>(complete_parameter#goto_previous_parameter))  
 " " }}}
 
+" c++ {{{
+" *.cpp 和 *.h 间切换
+    nmap <silent> <Leader>sw :FSHere<cr>
+" }}} 
 
 "------------------------------------------- end of configs --------------------------------------------

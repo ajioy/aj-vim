@@ -35,6 +35,7 @@ git clone https://github.com/ajioy/aj-vim.git
 ##### **2.1 dependence # ctags, ag(the_silver_searcher)**
 
 ```
+依赖它的插件分别有tagbar/leaderf
 # debian/ubuntu
 sudo apt-get install ctags
 sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
@@ -221,9 +222,9 @@ let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 
 | 4    | [Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)                                       | [x] 缩进竖线                                                                                      |
 
 ##### c/c++
-| 序号 | 插件名                                                                                              | 功能(建议 必选[x] 可选[-])                                                                        |
-| -    | ---                                                                                                 | ------                                                                                            |
-| 1    |                                                                                                     | todo                                                                                              |
+| 序号 | 插件名                                                                                              | 功能(建议 必选[x] 可选[-]) |
+| -    | ---                                                                                                 | ------                     |
+| 1    | [derekwyatt/vim-fswitch](https://github.com/derekwyatt/vim-fswitch)                                 | [-] 切换.h / .cpp          |
 
 ##### html/js/css/json
 | 序号 | 插件名                                                                                              | 功能(建议 必选[x] 可选[-])                                                                        |
@@ -406,6 +407,15 @@ ctrl+c  取消异步搜索任务
 ,gd     GoToDeclaration
 ,jo     跳至include文件
 ,jf     Automatically fix certain errors (FixIt)
+ ---
+,gc     当前项目下生成.ycm_extra_config.py - YCM-Generator
+ ---
+g]      基于标签的跳转，依赖ctags，声明、定义、引用
+ctrl+]  跳转至声明，依赖ctags
+,=      跳到下一个标签
+,-      跳到上一个标签
+
+
 
 15. Nerdcommenter
 ,cc 注释
