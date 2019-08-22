@@ -86,6 +86,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
@@ -266,7 +267,7 @@ if count(g:bundle_groups, 'markdown')
         autocmd Filetype markdown inoremap ,4 ####<Space><Enter><++><Esc>kA
         autocmd Filetype markdown inoremap ,l --------<Enter>
     " }}}
-" endif
+endif
 
 
 if count(g:bundle_groups, 'python')
@@ -551,6 +552,7 @@ endif
     let g:ycm_use_ultisnips_completer = 1 "提示UltiSnips
     let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
     let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_confirm_extra_conf=0 " 不要提示是否加载.ycm_extra_conf.py
     " 开启语法关键字补全
     let g:ycm_seed_identifiers_with_syntax=1
     " 回车作为选中
@@ -559,7 +561,7 @@ endif
     let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 
     " 跳转到定义处, 分屏打开
-    let g:ycm_goto_buffer_command = 'horizontal-split'
+    " let g:ycm_goto_buffer_command = 'horizontal-split'
     let g:ycm_register_as_syntastic_checker = 0
     " nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
     nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -594,6 +596,23 @@ endif
         \ 'tagbar' : 1,
         \ 'gitcommit' : 1,
         \}
+
+    let g:ycm_add_preview_to_completeopt = 0
+    let g:ycm_show_diagnostics_ui = 0
+    let g:ycm_server_log_level = 'info'
+    let g:ycm_min_num_identifier_candidate_chars = 2
+    let g:ycm_collect_identifiers_from_comments_and_strings = 1
+    let g:ycm_complete_in_strings=1
+    " let g:ycm_key_invoke_completion = '<c-z>'
+    set completeopt=menu,menuone
+
+    noremap <c-z> <NOP>
+
+    let g:ycm_semantic_triggers =  {
+                \ 'c,cpp,python,go': ['re!\w{2}'],
+                \ 'cs,javascript': ['re!\w{2}'],
+                \ }
+
 
 " }}}
 
