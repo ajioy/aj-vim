@@ -44,7 +44,9 @@ filetype plugin indent on
 " General Settings 基础设置
 "==========================================
 
-set nocompatible         " 设置不兼容原始vi模式 
+set clipboard=exclude:.* " 解决打开vim时set clipiboard very slow
+set updatetime=100       " 刷新时间默认为400，改为100加快gitgutter刷新速度
+set nocompatible         " 设置不兼容原始vi模式
 set noeb                 " 关闭错误的提示
 set ttimeoutlen=0        " 设置<ESC>键响应时间                                                    
 set whichwrap+=<,>,h,l   " 设置光标键跨行                                                             
@@ -238,17 +240,20 @@ set nrformats=
 set relativenumber number
 au FocusLost * :set norelativenumber number
 au FocusGained * :set relativenumber
-" 插入模式下用绝对行号, 普通模式下用相对
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber number
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
+
+augroup EditVim
+    " 插入模式下用绝对行号, 普通模式下用相对
+    autocmd InsertEnter * :set norelativenumber number
+    autocmd InsertLeave * :set relativenumber
+    function! NumberToggle()
+    if(&relativenumber == 1)
+        set norelativenumber number
+    else
+        set relativenumber
+    endif
+    endfunc
+    nnoremap <C-n> :call NumberToggle()<cr>
+augroup END
 
 " 防止tmux下vim的背景色显示异常
 " Refer: http://sunaku.github.io/vim-256color-bce.html
@@ -284,10 +289,12 @@ set formatoptions+=B
 "==========================================
 " others 其它设置
 "==========================================
-" vimrc文件修改之后自动加载, windows
-autocmd! bufwritepost _vimrc source %
-" vimrc文件修改之后自动加载, linux
-autocmd! bufwritepost .vimrc source %
+augroup EditVim
+    " vimrc文件修改之后自动加载, windows
+    autocmd! bufwritepost _vimrc source %
+    " vimrc文件修改之后自动加载, linux
+    autocmd! bufwritepost .vimrc source %
+augroup END
 
 " 自动补全配置
 " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
@@ -298,21 +305,23 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
 
-" 离开插入模式后自动关闭预览窗口
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
 " 回车即选中当前项
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
-" In the quickfix window, <CR> is used to jump to the error under the
-" cursor, so undefine the mapping there.
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-" quickfix window  s/v to open in split window,  ,gd/,jd => quickfix window => open it
-autocmd BufReadPost quickfix nnoremap <buffer> v <C-w><Enter><C-w>L
-autocmd BufReadPost quickfix nnoremap <buffer> s <C-w><Enter><C-w>K
+augroup EditVim
+    " 离开插入模式后自动关闭预览窗口
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" command-line window
-autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+    " In the quickfix window, <CR> is used to jump to the error under the
+    " cursor, so undefine the mapping there.
+    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+    " quickfix window  s/v to open in split window,  ,gd/,jd => quickfix window => open it
+    autocmd BufReadPost quickfix nnoremap <buffer> v <C-w><Enter><C-w>L
+    autocmd BufReadPost quickfix nnoremap <buffer> s <C-w><Enter><C-w>K
+
+    " command-line window
+    autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+augroup END
 
 
 " 上下左右键的行为 会显示其他信息
@@ -423,6 +432,9 @@ noremap L $
 " Map ; to : and save a million keystrokes 用于快速进入命令行
 nnoremap ; :
 
+" 插入模式ctrl - a跳行首, ctrl - e行尾
+imap <C-a> <Esc><S-^>i
+imap <C-e> <Esc>$a
 
 " 命令行模式增强，ctrl - a到行首， -e 到行尾
 cnoremap <C-j> <t_kd>
@@ -446,14 +458,16 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 " 去掉搜索高亮
-noremap <silent><leader>/ :nohls<CR>
+noremap <silent><BackSpace> :nohls<CR>
 
 " switch # *
 nnoremap # *
 nnoremap * #
 
-" for # indent, python文件中输入新行时#号注释不切回行首
-autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
+augroup EditVim
+    " for # indent, python文件中输入新行时#号注释不切回行首
+    autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#
+augroup END
 
 
 " tab/buffer相关
@@ -495,14 +509,16 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-" Toggles between the active and last active tab "
-" The first tab is always 1 "
-let g:last_active_tab = 1
-" nnoremap <leader>gt :execute 'tabnext ' . g:last_active_tab<cr>
-" nnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
-" vnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
-nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
-autocmd TabLeave * let g:last_active_tab = tabpagenr()
+augroup EditVim
+    " Toggles between the active and last active tab "
+    " The first tab is always 1 "
+    let g:last_active_tab = 1
+    " nnoremap <leader>gt :execute 'tabnext ' . g:last_active_tab<cr>
+    " nnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
+    " vnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
+    nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
+    autocmd TabLeave * let g:last_active_tab = tabpagenr()
+augroup END
 
 " 新建tab  Ctrl+t
 nnoremap <C-t>     :tabnew<CR>
@@ -518,8 +534,6 @@ vnoremap > >gv
 " y$ -> Y Make Y behave like other capitals
 map Y y$
 
-" 共享系统剪贴板
-set clipboard=unnamed
 " 复制选中区到系统剪切板中
 vnoremap <leader>y "+y
 " 设置快捷键将系统剪贴板内容粘贴至 vim
@@ -544,9 +558,6 @@ cmap w!! w !sudo tee >/dev/null %
 
 " kj 替换 Esc
 inoremap kj <Esc>
-
-" ctrl+d 替换 Del
-inoremap <C-d> <Del>
 
 " 滚动Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
@@ -586,47 +597,52 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " FileType Settings  文件类型设置
 "==========================================
 
-" 具体编辑文件类型的一般设置，比如不要 tab 等
-autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
-autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
-autocmd BufRead,BufNewFile *.part set filetype=html
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+augroup EditVim
+    " 具体编辑文件类型的一般设置，比如不要 tab 等
+    autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+    autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+    autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
+    autocmd BufRead,BufNewFile *.part set filetype=html
+    autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
-" disable showmatch when use > in php
-au BufWinEnter *.php set mps-=<:>
-
-
-
-" 保存python文件时删除多余空格
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+    " disable showmatch when use > in php
+    au BufWinEnter *.php set mps-=<:>
+augroup END
 
 
-" 定义函数AutoSetFileHead，自动插入文件头
-autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
-function! AutoSetFileHead()
-    "如果文件类型为.sh文件
-    if &filetype == 'sh'
-        call setline(1, "\#!/bin/bash")
-    endif
 
-    "如果文件类型为python
-    if &filetype == 'python'
-        " call setline(1, "\#!/usr/bin/env python")
-        " call append(1, "\# encoding: utf-8")
-        call setline(1, "\# -*- coding: utf-8 -*-")
-    endif
+augroup EditVim
+    " 保存python文件时删除多余空格
+    fun! <SID>StripTrailingWhitespaces()
+        let l = line(".")
+        let c = col(".")
+        %s/\s\+$//e
+        call cursor(l, c)
+    endfun
+    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+augroup END
 
-    normal G
-    normal o
-    normal o
-endfunc
+augroup EditVim
+    " 定义函数AutoSetFileHead，自动插入文件头
+    autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
+    function! AutoSetFileHead()
+        "如果文件类型为.sh文件
+        if &filetype == 'sh'
+            call setline(1, "\#!/bin/bash")
+        endif
+
+        "如果文件类型为python
+        if &filetype == 'python'
+            " call setline(1, "\#!/usr/bin/env python")
+            " call append(1, "\# encoding: utf-8")
+            call setline(1, "\# -*- coding: utf-8 -*-")
+        endif
+
+        normal G
+        normal o
+        normal o
+    endfunc
+augroup END
 
 
 " 设置可以高亮的关键字
